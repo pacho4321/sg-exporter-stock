@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Singapore Stock — Venture Capital</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background: #f5f5f5; color: #222; }
+    header { background: #1a1a1a; color: white; padding: 1.5rem 2rem; }
+    header h1 { margin: 0; font-size: 1.5rem; }
+    header p { margin: 0.3rem 0 0; opacity: 0.8; font-size: 0.95rem; }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .card img { width: 100%; height: 180px; object-fit: cover; background: #eee; }
+    .card-body { padding: 1rem 1.2rem 1.2rem; }
+    .card h2 { margin: 0 0 0.4rem; font-size: 1.15rem; }
+    .meta { font-size: 0.85rem; color: #555; line-height: 1.5; }
+    .price { font-size: 1.3rem; font-weight: 700; color: #c0392b; margin: 0.6rem 0; }
+    .tag { display: inline-block; background: #eee; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-right: 0.4rem; }
+    .contact { text-align: center; margin-top: 2.5rem; padding: 1.5rem; background: white; border-radius: 8px; }
+    footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: #777; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Singapore Stock</h1>
+    <p>Cars sourced in Singapore — available for other exporters</p>
+  </header>
+
+  <div class="container">
+    <div class="grid" id="cars"></div>
+
+    <div class="contact">
+      <h3>Interested?</h3>
+      <p>Contact Venture Capital Co., Ltd.</p>
+      <p>frank@venturecap.jp &nbsp;|&nbsp; +81 90-8346-8707</p>
+    </div>
+  </div>
+
+  <footer>Venture Capital Co., Ltd. — Hiratsuka, Japan</footer>
+
+  <script>
+    // Edit this list to add or update cars
+    const cars = [
+      {
+        model: "Nissan Note 1.2L",
+        year: 2016,
+        chassis: "JN1TAAE12Z0972347",
+        color: "Light blue",
+        price: "USD 4,500",
+        location: "Singapore",
+        note: "Ex yard",
+        image: "https://via.placeholder.com/400x180?text=Nissan+Note"
+      },
+      {
+        model: "Nissan Note 1.2L",
+        year: 2015,
+        chassis: "JN1TBAE12Z0982861",
+        color: "Red",
+        price: "USD 4,500",
+        location: "Singapore",
+        note: "Ex yard",
+        image: "https://via.placeholder.com/400x180?text=Nissan+Note"
+      },
+      {
+        model: "Nissan Note 1.2L",
+        year: 2014,
+        chassis: "JN1TAAE12Z0972539",
+        color: "Brown",
+        price: "USD 4,500",
+        location: "Singapore",
+        note: "Ex yard",
+        image: "https://via.placeholder.com/400x180?text=Nissan+Note"
+      }
+    ];
+
+    const grid = document.getElementById("cars");
+    cars.forEach(car => {
+      grid.innerHTML += `
+        <div class="card">
+          <img src="${car.image}" alt="${car.model}">
+          <div class="card-body">
+            <h2>${car.model}</h2>
+            <div class="price">${car.price}</div>
+            <div class="meta">
+              <span class="tag">${car.year}</span>
+              <span class="tag">${car.color}</span><br>
+              Chassis: ${car.chassis}<br>
+              ${car.location} · ${car.note}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
