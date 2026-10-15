@@ -5,22 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Singapore Stock — Venture Capital</title>
   <style>
-    * { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background: #f5f5f5; color: #222; }
-    header { background: #1a1a1a; color: white; padding: 1.5rem 2rem; }
-    header h1 { margin: 0; font-size: 1.5rem; }
-    header p { margin: 0.3rem 0 0; opacity: 0.8; font-size: 0.95rem; }
-    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-    .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .card img { width: 100%; height: 180px; object-fit: cover; background: #eee; }
-    .card-body { padding: 1rem 1.2rem 1.2rem; }
-    .card h2 { margin: 0 0 0.4rem; font-size: 1.15rem; }
-    .meta { font-size: 0.85rem; color: #555; line-height: 1.5; }
-    .price { font-size: 1.3rem; font-weight: 700; color: #c0392b; margin: 0.6rem 0; }
-    .tag { display: inline-block; background: #eee; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-right: 0.4rem; }
-    .contact { text-align: center; margin-top: 2.5rem; padding: 1.5rem; background: white; border-radius: 8px; }
-    footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: #777; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f8f9fa;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    header {
+      background: linear-gradient(135deg, #111 0%, #2c2c2c 100%);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+    header p {
+      margin-top: 0.5rem;
+      opacity: 0.75;
+      font-size: 1rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #e9ecef;
+    }
+    .card-body {
+      padding: 1.25rem 1.4rem 1.5rem;
+    }
+    .card h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .price {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #d32f2f;
+      margin: 0.5rem 0 0.8rem;
+    }
+    .meta {
+      font-size: 0.88rem;
+      color: #555;
+    }
+    .tags {
+      margin-bottom: 0.6rem;
+    }
+    .tag {
+      display: inline-block;
+      background: #f1f3f5;
+      color: #333;
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      margin-right: 0.4rem;
+      font-weight: 500;
+    }
+    .chassis {
+      font-family: ui-monospace, monospace;
+      font-size: 0.82rem;
+      color: #444;
+      margin-top: 0.3rem;
+    }
+    .contact {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .contact h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+    }
+    .contact a {
+      color: #d32f2f;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
   </style>
 </head>
 <body>
@@ -33,16 +128,15 @@
     <div class="grid" id="cars"></div>
 
     <div class="contact">
-      <h3>Interested?</h3>
-      <p>Contact Venture Capital Co., Ltd.</p>
-      <p>frank@venturecap.jp &nbsp;|&nbsp; +81 90-8346-8707</p>
+      <h3>Interested in any unit?</h3>
+      <p>Venture Capital Co., Ltd.</p>
+      <p><a href="mailto:frank@venturecap.jp">frank@venturecap.jp</a> &nbsp;|&nbsp; +81 90-8346-8707</p>
     </div>
   </div>
 
   <footer>Venture Capital Co., Ltd. — Hiratsuka, Japan</footer>
 
   <script>
-    // Edit this list to add or update cars
     const cars = [
       {
         model: "Nissan Note 1.2L",
@@ -52,7 +146,7 @@
         price: "USD 4,500",
         location: "Singapore",
         note: "Ex yard",
-        image: "https://via.placeholder.com/400x180?text=Nissan+Note"
+        image: "https://via.placeholder.com/400x200/e9ecef/495057?text=Nissan+Note"
       },
       {
         model: "Nissan Note 1.2L",
@@ -62,7 +156,7 @@
         price: "USD 4,500",
         location: "Singapore",
         note: "Ex yard",
-        image: "https://via.placeholder.com/400x180?text=Nissan+Note"
+        image: "https://via.placeholder.com/400x200/e9ecef/495057?text=Nissan+Note"
       },
       {
         model: "Nissan Note 1.2L",
@@ -72,7 +166,7 @@
         price: "USD 4,500",
         location: "Singapore",
         note: "Ex yard",
-        image: "https://via.placeholder.com/400x180?text=Nissan+Note"
+        image: "https://via.placeholder.com/400x200/e9ecef/495057?text=Nissan+Note"
       }
     ];
 
@@ -84,12 +178,13 @@
           <div class="card-body">
             <h2>${car.model}</h2>
             <div class="price">${car.price}</div>
-            <div class="meta">
+            <div class="tags">
               <span class="tag">${car.year}</span>
-              <span class="tag">${car.color}</span><br>
-              Chassis: ${car.chassis}<br>
-              ${car.location} · ${car.note}
+              <span class="tag">${car.color}</span>
+              <span class="tag">${car.location}</span>
             </div>
+            <div class="chassis">${car.chassis}</div>
+            <div class="meta" style="margin-top:0.4rem">${car.note}</div>
           </div>
         </div>
       `;
