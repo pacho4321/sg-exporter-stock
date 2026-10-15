@@ -3,13 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Singapore Stock — Venture Capital</title>
+  <title>Singapore Cars — Venture Capital</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f5f7; color: #1a1a1a; line-height: 1.5; }
-    header { background: #111; color: #fff; padding: 1.4rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    header h1 { font-size: 1.3rem; font-weight: 600; }
-    header a { color: #fff; text-decoration: none; font-size: 0.9rem; opacity: 0.8; }
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e8e8e8;
+      position: relative;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .logo-icon {
+      width: 52px;
+      height: 52px;
+      position: relative;
+    }
+    .logo-text {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #0d2b4a;
+      letter-spacing: -0.3px;
+    }
+    .vc-corner {
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #0d2b4a;
+      background: #f0f4f8;
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+    }
+    header a { color: #0d2b4a; text-decoration: none; font-size: 0.9rem; opacity: 0.75; }
     .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
     .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: transform 0.15s; }
@@ -19,7 +53,6 @@
     .card h2 { font-size: 1.05rem; margin-bottom: 0.3rem; }
     .price { color: #c62828; font-weight: 700; font-size: 1.2rem; }
     .meta { font-size: 0.8rem; color: #666; margin-top: 0.4rem; }
-    /* detail view */
     #detail { display: none; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
     #detail.show { display: block; }
     .detail-hero { width: 100%; height: 340px; object-fit: cover; background: #e9ecef; }
@@ -38,13 +71,39 @@
     footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: #888; }
     @media (max-width: 600px) {
       .detail-hero { height: 220px; }
-      header { flex-direction: column; gap: 0.4rem; }
+      header { flex-direction: column; gap: 0.4rem; padding: 1rem; }
+      .vc-corner { position: static; margin-top: 0.3rem; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Singapore Stock</h1>
+    <div class="logo">
+      <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <!-- sun -->
+        <circle cx="42" cy="18" r="9" fill="#f5b942"/>
+        <g stroke="#f5b942" stroke-width="2" stroke-linecap="round">
+          <line x1="42" y1="4" x2="42" y2="8"/>
+          <line x1="42" y1="28" x2="42" y2="32"/>
+          <line x1="28" y1="18" x2="32" y2="18"/>
+          <line x1="52" y1="18" x2="56" y2="18"/>
+          <line x1="32" y1="8" x2="34" y2="10"/>
+          <line x1="50" y1="26" x2="52" y2="28"/>
+          <line x1="32" y1="28" x2="34" y2="26"/>
+          <line x1="50" y1="10" x2="52" y2="8"/>
+        </g>
+        <!-- water / marina base -->
+        <path d="M4 46 Q16 40 28 46 T52 46 T60 42" stroke="#0d2b4a" stroke-width="2" fill="none"/>
+        <path d="M6 50 Q18 44 30 50 T54 50" stroke="#4a7ab5" stroke-width="1.5" fill="none" opacity="0.7"/>
+        <!-- car -->
+        <path d="M12 36 L18 28 H34 L40 36 H44 V42 H12 Z" fill="#0d2b4a"/>
+        <circle cx="18" cy="42" r="3.5" fill="#333"/>
+        <circle cx="36" cy="42" r="3.5" fill="#333"/>
+        <rect x="20" y="30" width="10" height="5" rx="1" fill="#fff" opacity="0.8"/>
+      </svg>
+      <div class="logo-text">Singapore Cars</div>
+    </div>
+    <span class="vc-corner">VC</span>
     <a href="mailto:frank@venturecap.jp">frank@venturecap.jp</a>
   </header>
 
