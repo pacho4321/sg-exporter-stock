@@ -6,131 +6,70 @@
   <title>Singapore Stock — Venture Capital</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f8f9fa;
-      color: #1a1a1a;
-      line-height: 1.5;
-    }
-    header {
-      background: linear-gradient(135deg, #111 0%, #2c2c2c 100%);
-      color: #fff;
-      padding: 2.5rem 2rem 2rem;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-    }
-    header p {
-      margin-top: 0.5rem;
-      opacity: 0.75;
-      font-size: 1rem;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.75rem;
-    }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    }
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: #e9ecef;
-    }
-    .card-body {
-      padding: 1.25rem 1.4rem 1.5rem;
-    }
-    .card h2 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-    .price {
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: #d32f2f;
-      margin: 0.5rem 0 0.8rem;
-    }
-    .meta {
-      font-size: 0.88rem;
-      color: #555;
-    }
-    .tags {
-      margin-bottom: 0.6rem;
-    }
-    .tag {
-      display: inline-block;
-      background: #f1f3f5;
-      color: #333;
-      padding: 0.25rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      margin-right: 0.4rem;
-      font-weight: 500;
-    }
-    .chassis {
-      font-family: ui-monospace, monospace;
-      font-size: 0.82rem;
-      color: #444;
-      margin-top: 0.3rem;
-    }
-    .contact {
-      text-align: center;
-      margin-top: 3rem;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    }
-    .contact h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.6rem;
-    }
-    .contact a {
-      color: #d32f2f;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .contact a:hover { text-decoration: underline; }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.8rem;
-      color: #888;
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f5f7; color: #1a1a1a; line-height: 1.5; }
+    header { background: #111; color: #fff; padding: 1.4rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 1.3rem; font-weight: 600; }
+    header a { color: #fff; text-decoration: none; font-size: 0.9rem; opacity: 0.8; }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: transform 0.15s; }
+    .card:hover { transform: translateY(-3px); }
+    .card img { width: 100%; height: 170px; object-fit: cover; background: #e9ecef; }
+    .card-body { padding: 1rem 1.1rem 1.2rem; }
+    .card h2 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+    .price { color: #c62828; font-weight: 700; font-size: 1.2rem; }
+    .meta { font-size: 0.8rem; color: #666; margin-top: 0.4rem; }
+    /* detail view */
+    #detail { display: none; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    #detail.show { display: block; }
+    .detail-hero { width: 100%; height: 340px; object-fit: cover; background: #e9ecef; }
+    .detail-body { padding: 1.5rem 1.8rem 2rem; }
+    .detail-body h2 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+    .detail-price { font-size: 1.8rem; font-weight: 700; color: #c62828; margin: 0.4rem 0 1.2rem; }
+    .section-title { font-size: 0.95rem; font-weight: 600; margin: 1.4rem 0 0.6rem; color: #333; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    td { padding: 0.45rem 0.6rem; border-bottom: 1px solid #f0f0f0; }
+    td:first-child { color: #666; width: 40%; }
+    .condition { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.8rem; margin-top: 0.5rem; }
+    .cond-item { background: #f8f9fa; padding: 0.7rem 0.9rem; border-radius: 6px; font-size: 0.88rem; }
+    .cond-item strong { display: block; font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 0.3px; }
+    .back { display: inline-block; margin-bottom: 1rem; color: #c62828; text-decoration: none; font-size: 0.9rem; cursor: pointer; }
+    .contact-box { margin-top: 1.5rem; padding: 1.2rem; background: #f8f9fa; border-radius: 8px; text-align: center; }
+    footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: #888; }
+    @media (max-width: 600px) {
+      .detail-hero { height: 220px; }
+      header { flex-direction: column; gap: 0.4rem; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Singapore Stock</h1>
-    <p>Cars sourced in Singapore — available for other exporters</p>
+    <a href="mailto:frank@venturecap.jp">frank@venturecap.jp</a>
   </header>
 
   <div class="container">
-    <div class="grid" id="cars"></div>
+    <div class="grid" id="list"></div>
 
-    <div class="contact">
-      <h3>Interested in any unit?</h3>
-      <p>Venture Capital Co., Ltd.</p>
-      <p><a href="mailto:frank@venturecap.jp">frank@venturecap.jp</a> &nbsp;|&nbsp; +81 90-8346-8707</p>
+    <div id="detail">
+      <span class="back" onclick="showList()">← Back to list</span>
+      <img class="detail-hero" id="d-img" alt="">
+      <div class="detail-body">
+        <h2 id="d-title"></h2>
+        <div class="detail-price" id="d-price"></div>
+
+        <div class="section-title">Specifications</div>
+        <table id="d-specs"></table>
+
+        <div class="section-title">Condition</div>
+        <div class="condition" id="d-condition"></div>
+
+        <div class="contact-box">
+          <strong>Interested?</strong><br>
+          Venture Capital Co., Ltd.<br>
+          <a href="mailto:frank@venturecap.jp">frank@venturecap.jp</a> &nbsp;|&nbsp; +81 90-8346-8707
+        </div>
+      </div>
     </div>
   </div>
 
@@ -139,52 +78,116 @@
   <script>
     const cars = [
       {
-        model: "Nissan Note 1.2L",
-        year: 2016,
+        id: 1,
+        make: "Nissan",
+        model: "Note 1.2L",
+        year: "2016",
         chassis: "JN1TAAE12Z0972347",
         color: "Light blue",
+        fuel: "Petrol",
+        transmission: "A/T",
+        engine: "1.2L",
+        doors: "5",
+        steering: "Right",
+        mileage: "",
         price: "USD 4,500",
         location: "Singapore",
         note: "Ex yard",
-        image: "https://via.placeholder.com/400x200/e9ecef/495057?text=Nissan+Note"
+        image: "https://via.placeholder.com/800x400/e9ecef/495057?text=Nissan+Note",
+        condition: {
+          engine: "OK",
+          transmission: "OK",
+          exterior: "Normal wear",
+          interior: "OK",
+          windows: "All working",
+          doors: "OK",
+          grade: "B"
+        }
       },
       {
-        model: "Nissan Note 1.2L",
-        year: 2015,
+        id: 2,
+        make: "Nissan",
+        model: "Note 1.2L",
+        year: "2015",
         chassis: "JN1TBAE12Z0982861",
         color: "Red",
+        fuel: "Petrol",
+        transmission: "A/T",
+        engine: "1.2L",
+        doors: "5",
+        steering: "Right",
+        mileage: "",
         price: "USD 4,500",
         location: "Singapore",
         note: "Ex yard",
-        image: "https://via.placeholder.com/400x200/e9ecef/495057?text=Nissan+Note"
-      },
-      {
-        model: "Nissan Note 1.2L",
-        year: 2014,
-        chassis: "JN1TAAE12Z0972539",
-        color: "Brown",
-        price: "USD 4,500",
-        location: "Singapore",
-        note: "Ex yard",
-        image: "https://via.placeholder.com/400x200/e9ecef/495057?text=Nissan+Note"
+        image: "https://via.placeholder.com/800x400/e9ecef/495057?text=Nissan+Note",
+        condition: {
+          engine: "OK",
+          transmission: "OK",
+          exterior: "Small scratches",
+          interior: "OK",
+          windows: "Front right not working",
+          doors: "OK",
+          grade: "B"
+        }
       }
     ];
 
-    const grid = document.getElementById("cars");
+    function showList() {
+      document.getElementById("list").style.display = "grid";
+      document.getElementById("detail").classList.remove("show");
+    }
+
+    function showDetail(id) {
+      const car = cars.find(c => c.id === id);
+      if (!car) return;
+      document.getElementById("list").style.display = "none";
+      const d = document.getElementById("detail");
+      d.classList.add("show");
+      document.getElementById("d-img").src = car.image;
+      document.getElementById("d-title").textContent = `${car.make} ${car.model} [${car.year}]`;
+      document.getElementById("d-price").textContent = car.price;
+
+      const specs = [
+        ["Make", car.make],
+        ["Model", car.model],
+        ["Chassis", car.chassis],
+        ["Year", car.year],
+        ["Color", car.color],
+        ["Fuel", car.fuel],
+        ["Transmission", car.transmission],
+        ["Engine", car.engine],
+        ["Doors", car.doors],
+        ["Steering", car.steering],
+        ["Mileage", car.mileage || "—"],
+        ["Location", car.location],
+        ["Note", car.note]
+      ];
+      document.getElementById("d-specs").innerHTML = specs.map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join("");
+
+      const cond = car.condition || {};
+      const condItems = [
+        ["Engine", cond.engine],
+        ["Transmission", cond.transmission],
+        ["Exterior", cond.exterior],
+        ["Interior", cond.interior],
+        ["Windows", cond.windows],
+        ["Doors", cond.doors],
+        ["Grade", cond.grade]
+      ];
+      document.getElementById("d-condition").innerHTML = condItems.map(([k,v]) => `<div class="cond-item"><strong>${k}</strong>${v || "—"}</div>`).join("");
+      window.scrollTo(0,0);
+    }
+
+    const list = document.getElementById("list");
     cars.forEach(car => {
-      grid.innerHTML += `
-        <div class="card">
+      list.innerHTML += `
+        <div class="card" onclick="showDetail(${car.id})">
           <img src="${car.image}" alt="${car.model}">
           <div class="card-body">
-            <h2>${car.model}</h2>
+            <h2>${car.make} ${car.model}</h2>
             <div class="price">${car.price}</div>
-            <div class="tags">
-              <span class="tag">${car.year}</span>
-              <span class="tag">${car.color}</span>
-              <span class="tag">${car.location}</span>
-            </div>
-            <div class="chassis">${car.chassis}</div>
-            <div class="meta" style="margin-top:0.4rem">${car.note}</div>
+            <div class="meta">${car.year} · ${car.color} · ${car.chassis.slice(-6)}</div>
           </div>
         </div>
       `;
